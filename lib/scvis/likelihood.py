@@ -1,4 +1,5 @@
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import numpy as np
 
 EPS = 1e-20
@@ -12,7 +13,7 @@ def log_likelihood_gaussian(x, mu, sigma_square):
 def log_likelihood_student(x, mu, sigma_square, df=2.0):
     sigma = tf.sqrt(sigma_square)
 
-    dist = tf.contrib.distributions.StudentT(df=df,
+    dist = tf.distributions.StudentT(df=df,
                                              loc=mu,
                                              scale=sigma)
     return tf.reduce_sum(dist.log_prob(x), reduction_indices=1)

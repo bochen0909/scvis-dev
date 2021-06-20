@@ -1,6 +1,7 @@
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
-X_INIT = tf.contrib.layers.xavier_initializer()
+X_INIT = tf.keras.initializers.glorot_normal()
 
 
 def xavier(fan_in_out, name='weight'):

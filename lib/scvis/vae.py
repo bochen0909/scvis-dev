@@ -1,4 +1,5 @@
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from scvis.tf_helper import weight_xavier_relu, bias_variable, shape
 from collections import namedtuple
 
